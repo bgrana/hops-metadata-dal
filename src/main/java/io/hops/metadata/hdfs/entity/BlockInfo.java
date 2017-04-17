@@ -26,9 +26,10 @@ public class BlockInfo {
   private long timeStamp;
   private int primaryNodeIndex;
   private long blockRecoveryId;
+  private long blockVersion;
 
   public BlockInfo(long blockId, int blockIndex, int inodeId, long numBytes,
-      long generationStamp, int blockUnderConstructionState, long timeStamp) {
+      long generationStamp, int blockUnderConstructionState, long timeStamp, long blockVersion) {
     this.blockId = blockId;
     this.blockIndex = blockIndex;
     this.inodeId = inodeId;
@@ -36,13 +37,14 @@ public class BlockInfo {
     this.generationStamp = generationStamp;
     this.blockUCState = blockUnderConstructionState;
     this.timeStamp = timeStamp;
+    this.blockVersion = blockVersion;
   }
 
   public BlockInfo(long blockId, int blockIndex, int inodeId, long numBytes,
       long generationStamp, int blockUnderConstructionState, long timeStamp,
-      int primaryNodeIndex, long blockRecoveryId) {
+      int primaryNodeIndex, long blockRecoveryId, long blockVersion) {
     this(blockId, blockIndex, inodeId, numBytes, generationStamp,
-        blockUnderConstructionState, timeStamp);
+        blockUnderConstructionState, timeStamp, blockVersion);
     this.primaryNodeIndex = primaryNodeIndex;
     this.blockRecoveryId = blockRecoveryId;
   }
@@ -118,5 +120,9 @@ public class BlockInfo {
   public void setBlockRecoveryId(long blockRecoveryId) {
     this.blockRecoveryId = blockRecoveryId;
   }
+
+  public long getBlockVersion() { return blockVersion; }
+
+  public void setBlockVersion(long blockVersion) { this.blockVersion = blockVersion; }
   
 }

@@ -120,6 +120,7 @@ public class TablesDef {
     public static final String TIME_STAMP = "time_stamp";
     public static final String PRIMARY_NODE_INDEX = "primary_node_index";
     public static final String BLOCK_RECOVERY_ID = "block_recovery_id";
+    public static final String BLOCK_VERSION = "block_version";
   }
 
   public static interface EncodingStatusTableDef {
