@@ -31,7 +31,7 @@ public class INode extends INodeBase implements Comparable<INode> {
   private int generationStamp;
   private String symlink;
   private boolean metaEnabled;
-  private int lastVersion;
+  private byte lastVersion;
 
   public INode() {
   }
@@ -42,7 +42,7 @@ public class INode extends INodeBase implements Comparable<INode> {
       String clientMachine,
       String clientNode, int generationStamp, long header, String symlink,
       boolean subtreeLocked, long subtreeLockOwner, boolean metaEnabled,
-      long size, int lastVersion) {
+      long size, byte lastVersion) {
 
     super(id, parentId, name, partitionId, isDir, userID, groupID, permission, header,
         dirWithQuota, underConstruction, subtreeLocked, subtreeLockOwner,
@@ -123,9 +123,9 @@ public class INode extends INodeBase implements Comparable<INode> {
     this.metaEnabled = metaEnabled;
   }
 
-  public int getLastVersion() { return lastVersion; }
+  public byte getLastVersion() { return lastVersion; }
 
-  public void setLastVersion(int lastVersion) { this.lastVersion = lastVersion; }
+  public void setLastVersion(byte lastVersion) { this.lastVersion = lastVersion; }
 
   @Override
   public final int compareTo(INode other) {
