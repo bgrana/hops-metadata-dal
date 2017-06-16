@@ -42,9 +42,9 @@ public interface BlockInfoDataAccess<T> extends EntityDataAccess {
   
   List<T> findByIds(long[] blockIds, int[] inodeIds) throws StorageException;
 
-  List<T> findCompleteBlocksByINodeIdAndPrevVersion(int inodeId, byte version, byte lastVersion) throws StorageException;
+  List<T> findCompleteBlocksByINodeIdAndPrevVersion(int inodeId, int version, int lastVersion) throws StorageException;
 
-  List<T> findByINodeIdAndVersion(int inodeId, byte version) throws StorageException;
+  List<T> findByINodeIdAndVersion(int inodeId, int version) throws StorageException;
 
   void prepare(Collection<T> removed, Collection<T> newed,
       Collection<T> modified) throws StorageException;
