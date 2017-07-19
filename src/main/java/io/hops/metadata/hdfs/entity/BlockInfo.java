@@ -27,10 +27,12 @@ public class BlockInfo {
   private int primaryNodeIndex;
   private long blockRecoveryId;
   private boolean isOldBlock;
+  private boolean isOnDemand;
+  private boolean isInRotation;
 
   public BlockInfo(long blockId, int blockIndex, int inodeId, long numBytes,
       long generationStamp, int blockUnderConstructionState, long timeStamp,
-      boolean isOldBlock) {
+      boolean isOldBlock, boolean isOnDemand, boolean isInRotation) {
     this.blockId = blockId;
     this.blockIndex = blockIndex;
     this.inodeId = inodeId;
@@ -39,13 +41,17 @@ public class BlockInfo {
     this.blockUCState = blockUnderConstructionState;
     this.timeStamp = timeStamp;
     this.isOldBlock = isOldBlock;
+    this.isOnDemand = isOnDemand;
+    this.isInRotation = isInRotation;
   }
 
   public BlockInfo(long blockId, int blockIndex, int inodeId, long numBytes,
       long generationStamp, int blockUnderConstructionState, long timeStamp,
-      int primaryNodeIndex, long blockRecoveryId, boolean isOldBlock) {
+      int primaryNodeIndex, long blockRecoveryId, boolean isOldBlock,
+      boolean isOnDemand, boolean isInRotation) {
     this(blockId, blockIndex, inodeId, numBytes, generationStamp,
-        blockUnderConstructionState, timeStamp, isOldBlock);
+        blockUnderConstructionState, timeStamp, isOldBlock, isOnDemand,
+        isInRotation);
     this.primaryNodeIndex = primaryNodeIndex;
     this.blockRecoveryId = blockRecoveryId;
   }
@@ -88,6 +94,10 @@ public class BlockInfo {
 
   public boolean isOldBlock() { return isOldBlock; }
 
+  public boolean isOnDemand() { return isOnDemand; }
+
+  public boolean isInRotation() { return isInRotation; }
+
   public void setBlockId(long blockId) {
     this.blockId = blockId;
   }
@@ -125,5 +135,9 @@ public class BlockInfo {
   }
 
   public void setOldBlock(boolean isOldBlock) { this.isOldBlock = isOldBlock; }
+
+  public void setOnDemand(boolean onDemand) { isOnDemand = onDemand; }
+
+  public void setInRotation(boolean inRotation) { isInRotation = inRotation; }
   
 }

@@ -120,6 +120,8 @@ public class TablesDef {
     public static final String PRIMARY_NODE_INDEX = "primary_node_index";
     public static final String BLOCK_RECOVERY_ID = "block_recovery_id";
     public static final String IS_OLD_BLOCK = "is_old_block";
+    public static final String IS_ON_DEMAND = "is_on_demand";
+    public static final String IS_IN_ROTATION = "is_in_rotation";
   }
 
   public static interface EncodingStatusTableDef {
